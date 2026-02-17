@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background: #f4f6f8;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  background: indigo;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-nav{
+  background: tomato;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== DASHBOARD LAYOUT ===== */
+.dashboard{
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  width: 150px;
+  background: #1e1e2f;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a{
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.sidebar a:hover{
+  color: tomato;
+}
+
+/* ===== MAIN ===== */
+.main{
+  flex: 10;
+  padding: 20px;
+}
+
+.cards{
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card{
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px #08100c;
+  flex: 5;
+}
+
+/* ===== BUTTONS ===== */
+.btn-danger{
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-close{
+  margin-top: 10px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  padding: 20px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <h2 class="logo">MyDashboard</h2>
+
+    <div class="nav-actions">
+      <button popovertarget="profile" class="btn-nav">
+        Profile
+      </button>
+
+      <!-- Profile Modal -->
+      <div id="profile" popover class="modal">
+        <p><strong>Abbas Mannir</strong></p>
+        <p>Junior Developer</p>
+        <button popovertarget="profile" popovertargetaction="hide" class="btn-close">
+          Close
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== DASHBOARD BODY ===== -->
+  <div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a href="index.html"> Back to Portfolio</a>
+      <a href="#">Users</a>
+      <a href="#">Reports</a>
+      <a href="#">Settings</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <h1>Welcome Back 👋</h1>
+
+      <!-- CARDS -->
+      <div class="cards">
+        <div class="card">
+          <h3>Total Users</h3>
+          <p>1,245</p>
+        </div>
+
+        <div class="card">
+          <h3>Revenue</h3>
+          <p>$3,540</p>
+        </div>
+
+        <div class="card">
+          <h3>Active Sessions</h3>
+          <p>87</p>
+        </div>
+      </div>
+
+      <!-- ACTION -->
+      <button popovertarget="confirm" class="btn-danger">
+        Delete Record
+      </button>
+
+      <!-- Confirm Modal -->
+      <div id="confirm" popover class="modal">
+        <p>Are you sure you want to delete?</p>
+        <button class="btn-danger">Yes</button>
+        <button popovertarget="confirm" popovertargetaction="hide" class="btn-close">
+          Cancel
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
