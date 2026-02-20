@@ -372,9 +372,9 @@ section{
 </form>
 
 <footer style="text-align:center;padding:2rem;font-size:0.9rem;">
-© 2025 Abbas Mannir (Junior)
+Â© 2025 Abbas Mannir (Junior)
 </footer>
-<scriptsrc="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"><\script>
+
 <script>
 
 /* THEME TOGGLE */
@@ -405,33 +405,14 @@ document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
 /* CONTACT */
 function sendMsg(){
-  alert("Thanks for reaching out Junior! I’ll reply soon ");
+  alert("Thanks for reaching out Junior! Iâ€™ll reply soon ");
 }
 
 
 
 
 
-(function(){
-  emailjs.init("UJ6T-yfa8iQNC5v6A"); // Public Key
-})();
-
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  emailjs.sendForm(
-    "service_5xinvtl",
-    "template_Ib1z30p",
-    this
-  )
-  .then(() => {
-    alert("Message sent successfully ");
-    this.reset();
-  }, (error) => {
-    alert("Failed to send message ");
-    console.log(error);
-  });
-});
+  
 </script>
 
 </body>
