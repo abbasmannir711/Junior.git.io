@@ -284,6 +284,16 @@ section{
 }
 
 /* ===== ANIMATION ===== */
+  .fade-up{
+  opacity:0;
+  transform:translateY(30px);
+  transition:.8s;
+}
+
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
 .fade-left{
   opacity:0;
   transform:translateX(-50px);
@@ -367,20 +377,22 @@ section{
 </header>
 
 <section class="container hero fade-left">
-  <div>
-    <h1>Frontend Developer <br><span>Problem Solver</span></h1>
-    <p>I build fast, responsive and user-focused web interfaces.</p>
-  </div>
-  <div class="social-links">
-  <a href="https://github.com/abbasmannir711" target="_blank">
-    GitHub
-  </a>
+<div>
+  <h1>Frontend Developer <br><span>Problem Solver</span></h1>
+  <p>I build fast, responsive and user-focused web interfaces.</p>
 
-  <a href="https://wa.me/2349069189866" target="_blank">
-    WhatsApp
-  </a>
+  <div class="social-links">
+    <a href="https://github.com/abbasmannir711" target="_blank">
+      GitHub
+    </a>
+
+    <a href="https://wa.me/2349069189866" target="_blank">
+      WhatsApp
+    </a>
+  </div>
 </div>
-  <img src="kaita.jpg" alt="Junior">
+
+<img src="kaita.jpg" alt="Junior">
 </section>
 
 <section id="about" class="container fade-right">
@@ -452,8 +464,7 @@ const toggle = document.getElementById("themeToggle");
 
 if(localStorage.getItem("theme") === "dark"){
   document.body.classList.add("dark");
-  toggle.textContent = "";
-}
+  toggle.textContent = "☀️";
 
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
@@ -471,7 +482,9 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 
-document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+document
+.querySelectorAll(".fade-up, .fade-left, .fade-right")
+.forEach(el => observer.observe(el));
 
 /* CONTACT */
 function sendMsg(){
