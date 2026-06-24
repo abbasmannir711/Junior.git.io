@@ -89,14 +89,27 @@ header, .navbar{
 }
 
 .hero img:hover{
-  transform: scale(1.1);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 20px 40px rgba(37,99,235,.4);
 }
 
 .hero h1 span{
   color: var(--accent-color);
 }
+.social-links{
+  margin-top:20px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
 
+.social-links a{
+  text-decoration:none;
+  background:var(--accent-color);
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+}
 /* ===== SECTIONS ===== */
 section{
   padding: 4rem 1.5rem;
@@ -113,7 +126,15 @@ section{
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap:1.5rem;
 }
+.skill-card,
+.project-card{
+  transition: .3s;
+}
 
+.skill-card:hover,
+.project-card:hover{
+  transform: translateY(-10px);
+}
 .skill-card,
 .project-card{
   background: var(--card-bg);
@@ -263,16 +284,25 @@ section{
 }
 
 /* ===== ANIMATION ===== */
-.fade-up{
+.fade-left{
   opacity:0;
-  transform: translateY(30px);
-  transition:0.8s ease;
+  transform:translateX(-50px);
+  transition:.8s;
 }
 
-.fade-up.show{
-  opacity:1;
-  transform: translateY(0);
+.fade-right{
+  opacity:0;
+  transform:translateX(50px);
+  transition:.8s;
 }
+
+.fade-left.show,
+.fade-right.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+
 
 /* ===== RESPONSIVE ===== */
 @media(min-width:768px){
@@ -302,6 +332,21 @@ section{
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
 }
+  @keyframes float {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-15px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.hero img{
+  animation: float 4s ease-in-out infinite;
+}
 </style>
 </head>
 
@@ -316,20 +361,29 @@ section{
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
      <a href="#contact">Contact</a>
-      <span class="theme-toggle" id="themeToggle"></span>
+      <span class="theme-toggle" id="themeToggle">🌙</span>
     </div>
   </nav>
 </header>
 
-<section class="container hero fade-up">
+<section class="container hero fade-left">
   <div>
     <h1>Frontend Developer <br><span>Problem Solver</span></h1>
     <p>I build fast, responsive and user-focused web interfaces.</p>
   </div>
+  <div class="social-links">
+  <a href="https://github.com/abbasmannir711" target="_blank">
+    GitHub
+  </a>
+
+  <a href="https://wa.me/2349069189866" target="_blank">
+    WhatsApp
+  </a>
+</div>
   <img src="kaita.jpg" alt="Junior">
 </section>
 
-<section id="about" class="container fade-up">
+<section id="about" class="container fade-right">
   <h2>About Me</h2>
   <p>
     I am Abbas Mannir (Junior), a frontend developer who focused on clean code,
@@ -346,20 +400,36 @@ section{
     <div class="skill-card">Responsive Design</div>
   </div>
 </section>
-<section>
-<h2>Projects</h2>
+<section id="projects" class="container fade-up">
+  <h2>Projects</h2>
 
-<div class="projects-grid">
-  <div class="project-card">
-    <a href="Weather.html" class="project-btn">Weather App</a>
-    <p>Uses API & Fetch.</p>
-  </div>  
-</section>
-  <div class="project-card">
-    <a href="Counter.html" class="project-btn">Counter App</a>
-    <p>Use Function & Condition</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <a href="Weather.html" class="project-btn">
+        Weather App
+      </a>
+      <p>Uses API & Fetch.</p>
+    </div>
+
+    <div class="project-card">
+      <a href="Counter.html" class="project-btn">
+        Counter App
+      </a>
+      <p>Uses Function & Condition</p>
+    </div>
+
+    <div class="project-card">
+      <a href="https://amm-mai-zare-ventures.netlify.app/"
+         target="_blank"
+         class="project-btn">
+         E-Commerce Website
+      </a>
+      <p>Online fabric and tailoring materials store.</p>
+    </div>
+
   </div>
-</div>
+</section>
 
 <form class="junior" id="contactForm">
   <h2>Contact Us</h2>
@@ -388,7 +458,7 @@ if(localStorage.getItem("theme") === "dark"){
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   const isDark = document.body.classList.contains("dark");
-  toggle.textContent = isDark ? "" : "";
+  toggle.textContent = isDark ? "☀️" : "🌙";
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
