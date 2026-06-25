@@ -379,9 +379,13 @@ section{
 .hero img{
   animation: float 4s ease-in-out infinite;
 }
- .hero-buttons{
+ 
+  .hero-buttons{
   margin-top:20px;
-} 
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
 </style>
 
   <link rel="stylesheet"
@@ -419,24 +423,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   Building fast, modern and user-focused digital experiences.
 </p>
   <div class="social-links">
-    <a href="https://github.com/abbasmannir711" target="_blank"rel="noopener noreferrer">
-      <i class="fab fa-github"></i>
-      GitHub
-    </a>
+<div class="social-links">
 
-    <a href="https://wa.me/2349069189866" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-      WhatsApp
-    </a>
-    <a href="#projects" class="project-btn">
-    View Projects
-    </a>
-    <a href="https://eu.docworkspace.com/d/sbRadoRXLqxo3L1d_ct6r0pyjgpe3sx6j49?sa=601.1074" download class="project-btn" 
-      download 
-      >
-    Download CV
-  </a>
-  </div>
+<a href="https://github.com/abbasmannir711" target="_blank">
+  <i class="fab fa-github"></i>
+</a>
+
+<a href="https://wa.me/2349069189866" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="#projects" class="project-btn">
+  View Projects
+</a>
+
+<a href="https://eu.docworkspace.com/d/sbRadoRXLqxo3L1d_ct6r0pyjgpe3sx6j49?sa=601.1074" download class="project-btn" 
+      download  class="project-btn">
+  Download CV
+</a>
+
 </div>
 
 <img src="Junior.jpg" alt="Junior">
